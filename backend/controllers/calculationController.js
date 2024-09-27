@@ -9,7 +9,7 @@ const addCalculation = async(req,res)=>{
 
 const getCalculation = async(req,res)=>{
     try{
-        const data = Calculation.findOne(req.user.id);
+        const data =  await Calculation.findOne(req.user.id);
         res.status(201).json({message:'All calculations'},data);
     }catch(err){
         res.status(500).json({message:'Error fetching data'},err);
